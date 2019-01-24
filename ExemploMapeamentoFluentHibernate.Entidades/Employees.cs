@@ -12,6 +12,7 @@ namespace ExemploMapeamentoFluentHibernate.Entidades
         public string Title { get; set; }
         public string TitleOfCourtesy { get; set; }
         public string BirthDate { get; set; }
+        public IList<Territories> Territories { get; set; }
         public string HireDate { get; set; }
         public string Address { get; set; }
         public string City { get; set; }
@@ -22,7 +23,9 @@ namespace ExemploMapeamentoFluentHibernate.Entidades
         public string Extension { get; set; }
         public string Photo { get; set; }
         public string Notes { get; set; }
-        public string RepostsTo { get; set; }
+        public IList<Employees> Subordinados { get; set; }
+        public IList<Orders> Orders { get; set; }
+        public Employees Supervisor { get; set; }
         public string PhotoPath { get; set; }
     }
 }

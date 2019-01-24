@@ -6,7 +6,7 @@ namespace ExemploMapeamentoFluentHibernate.Entidades
 {
     public class CustomerDemographics
     {
-        public string CustomerTypeID { get; set; }
+        public IList<Customers> Customers { get; set; }
         public string CustomerDesc { get; set; }
     }
 }
