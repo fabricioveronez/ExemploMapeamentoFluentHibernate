@@ -11,7 +11,7 @@ namespace ExemploMapeamentoFluentHibernate.Entidades.Mapeamento
         {
             Id(x => x.ShipperID);
             Map(x => x.CompanyName);
-            References(x => x.Orders);
+            HasMany(x => x.Orders).Table("Orders").KeyColumn("ShipperID");
             Map(x => x.Phone);
         }
     }

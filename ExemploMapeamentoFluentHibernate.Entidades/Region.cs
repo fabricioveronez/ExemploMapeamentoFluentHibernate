@@ -6,8 +6,8 @@ namespace ExemploMapeamentoFluentHibernate.Entidades
 {
     public class Region
     {
-        public int RegionID { get; set; }
-        public IList<Territories> Territories { get; set; }
-        public string RegionDescription { get; set; }
+        public virtual int RegionID { get; set; }
+        public virtual IList<Territories> Territories { get; set; }
+        public virtual string RegionDescription { get; set; }
     }
 }

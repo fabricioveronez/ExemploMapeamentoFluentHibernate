@@ -6,9 +6,12 @@ namespace ExemploMapeamentoFluentHibernate.Entidades.Mapeamento
     {
         public OrderDetailsMap()
         {
+           
             Id(x => x.OrderID);
-            HasOne(x => x.Product).PropertyRef(x => x.OrdersDetail);
-            Map(x => x.UnityPrice);
+            Id(x => x.ProductID);
+            References(x => x.Order, "OrderID");
+            References(x => x.Product, "ProductID");
+            Map(x => x.UnitPrice);
             Map(x => x.Quantity);
             Map(x => x.Discount);
         }

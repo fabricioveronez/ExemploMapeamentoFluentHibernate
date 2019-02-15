@@ -10,13 +10,13 @@ namespace ExemploMapeamentoFluentHibernate.Entidades.Mapeamento
         public OrdersMap()
         {
             Id(x => x.OrderID);
-            HasOne(x => x.Customer).PropertyRef(x=>x.Orders);
-            HasOne(x => x.Employee).PropertyRef(x => x.Orders);
+            References(x => x.Customer).Column("CustomerID");
+            References(x => x.Employee).Column("EmployeeID");
             Map(x => x.OrderDate);
             Map(x => x.RequiredDate);
             Map(x => x.ShippedDate);
-            HasOne(x => x.Shipper).PropertyRef(x=>x.Orders);
-            References(x => x.OrderDetails);
+            References(x => x.Shipper, "ShipVia");
+            HasMany(x => x.OrderDetails).Table("OrderDetails").KeyColumn("OrderID");
             Map(x => x.Freight);
             Map(x => x.ShipName);
             Map(x => x.ShipAddress);

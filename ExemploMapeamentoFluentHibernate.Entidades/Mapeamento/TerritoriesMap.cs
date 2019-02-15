@@ -11,8 +11,8 @@ namespace ExemploMapeamentoFluentHibernate.Entidades.Mapeamento
         {
             Id(x => x.TerritoryID);
             Map(x => x.TerritoryDescription);
-            References(x => x.Employees);
-            HasOne(x => x.Region).PropertyRef(x=>x.Territories);
+            HasManyToMany(x => x.Employees).Table("EmployeeTerritories").ParentKeyColumn("TerritoryID").ChildKeyColumn("EmployeeID");
+            References(x => x.Region, "RegionID");
         }
     }
 }

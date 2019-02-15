@@ -11,10 +11,10 @@ namespace ExemploMapeamentoFluentHibernate.Entidades.Mapeamento
         {
             Id(x => x.ProductID);
             Map(x => x.ProductName);
-            HasOne(x => x.Supplier).PropertyRef(x => x.Products);
-            HasOne(x => x.Category).PropertyRef(x => x.Products);
+            References(x => x.Supplier, "SupplierID");
+            References(x => x.Category, "CategoryID");
             Map(x => x.QuantityPerUnit);
-            References(x => x.OrdersDetail);
+            HasMany(x => x.OrdersDetail).Table("OrderDetails").KeyColumn("ProductID");
             Map(x => x.UnitPrice);
             Map(x => x.UnitsInStock);
             Map(x => x.UnitsOnOrder);

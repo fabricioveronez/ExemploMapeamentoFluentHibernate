@@ -1,7 +1,4 @@
 ﻿using FluentNHibernate.Mapping;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace ExemploMapeamentoFluentHibernate.Entidades.Mapeamento
 {
@@ -17,7 +14,7 @@ namespace ExemploMapeamentoFluentHibernate.Entidades.Mapeamento
             Map(x => x.City);
             Map(x => x.Region);
             Map(x => x.PostalCode);
-            References(x => x.Products);
+            HasMany(x => x.Products).Table("Products").KeyColumn("SupplierID");
             Map(x => x.Country);
             Map(x => x.Phone);
             Map(x => x.Fax);

@@ -6,10 +6,10 @@ namespace ExemploMapeamentoFluentHibernate.Entidades
 {
     public class Categories
     {
-        public int CategoryID { get; set; }
-        public IList<Products> Products { get; set; }
-        public string CategoryName { get; set; }
-        public string Description { get; set; }
-        public string Picture { get; set; }
+        public virtual int CategoryID { get; set; }
+        public virtual IList<Products> Products { get; set; }
+        public virtual string CategoryName { get; set; }
+        public virtual string Description { get; set; }
+        public virtual string Picture { get; set; }
     }
 }

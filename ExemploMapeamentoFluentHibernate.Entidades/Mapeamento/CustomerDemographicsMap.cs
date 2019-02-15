@@ -6,7 +6,8 @@ namespace ExemploMapeamentoFluentHibernate.Entidades.Mapeamento
     {
         public CustomerDemographicsMap()
         {
-            References(x => x.Customers);
+            Id(x => x.CustomerTypeID);
+            HasManyToMany(x => x.Customers).Table("CustomerCustomerDemo").ParentKeyColumn("CustomerID").ChildKeyColumn("CustomerTypeID").Inverse();
             Map(x => x.CustomerDesc);
         }
     }

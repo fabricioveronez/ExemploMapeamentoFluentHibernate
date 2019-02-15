@@ -13,7 +13,8 @@ namespace ExemploMapeamentoFluentHibernate.Entidades.Mapeamento
             Map(x => x.CompanyName);
             Map(x => x.ContactName);
             Map(x => x.ContactTitle);
-            References(x => x.CustomerDemographics);
+            HasManyToMany(x => x.CustomerDemographics).Table("CustomerCustomerDemo").ParentKeyColumn("CustomerID").ChildKeyColumn("CustomerTypeID");
+            HasMany(x => x.Orders).Table("Orders").KeyColumn("CustomerID");
             Map(x => x.Address);
             Map(x => x.City);
             Map(x => x.Region);
