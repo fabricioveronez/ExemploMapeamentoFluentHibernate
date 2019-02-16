@@ -9,10 +9,14 @@ namespace ExemploMapeamentoFluentHibernate.Entidades.Mapeamento
     {
         public ShippersMap()
         {
-            Id(x => x.ShipperID);
-            Map(x => x.CompanyName);
-            HasMany(x => x.Orders).Table("Orders").KeyColumn("ShipperID");
-            Map(x => x.Phone);
+            Table("[Shippers]");
+            Id(x => x.ShipperID, "[ShipperID]");
+            Map(x => x.CompanyName, "[CompanyName]").Not.Nullable().Length(80);
+            HasMany(x => x.Orders)
+                .Table("[Orders]")
+                .KeyColumn("[ShipperID]")
+                .ForeignKeyConstraintName("[Orders.FK_Orders_Shippers]");
+            Map(x => x.Phone, "[Phone]").Not.Nullable().Length(48); ;
         }
     }
 }

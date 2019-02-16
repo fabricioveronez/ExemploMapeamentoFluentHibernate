@@ -9,9 +9,10 @@ namespace ExemploMapeamentoFluentHibernate.Entidades.Mapeamento
     {
         public RegionMap()
         {
-            Id(x => x.RegionID);
+            Table("Region");
+            Id(x => x.RegionID, "[RegionID]").Not.Nullable().Length(4);
             HasMany(x => x.Territories).Table("Territories").KeyColumn("RegionID");
-            Map(x => x.RegionDescription);
+            Map(x => x.RegionDescription, "[RegionDescription]").Not.Nullable().Length(100);
         }
     }
 }
