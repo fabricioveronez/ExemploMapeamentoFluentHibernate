@@ -28,7 +28,7 @@ namespace ExemploMapeamentoFluentHibernate.Entidades.Mapeamento
             Map(x => x.Notes);
             HasMany(x => x.Orders).Table("Orders").KeyColumn("EmployeeID");
             References(x => x.Supervisor, "ReportsTo");
-            HasMany(x => x.Subordinados).KeyColumn("EmployeeID").Table("Employees").KeyColumn("ReportsTo");
+            HasMany(x => x.Subordinates).KeyColumn("EmployeeID").Table("Employees").KeyColumn("ReportsTo");
             Map(x => x.PhotoPath);
         }
     }
