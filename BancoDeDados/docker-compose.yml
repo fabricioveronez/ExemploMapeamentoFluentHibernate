@@ -1,0 +1,10 @@
+version: '3'
+
+services:
+  sql:
+    image: fabricioveronez/northwind-database
+    container_name: northwind-database
+    ports:
+      - "1433:1433"
+      - "1434:1434"
+      - "443:443"
