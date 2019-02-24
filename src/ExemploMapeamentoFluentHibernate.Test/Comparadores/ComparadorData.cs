@@ -5,7 +5,7 @@ using System.Text;
 
 namespace ExemploMapeamentoFluentHibernate.Test.Comparadores
 {
-    public class ComparadorCustomizado : IEqualityComparer
+    public class ComparadorData : IEqualityComparer
     {
         public new bool Equals(object x, object y)
         {
@@ -13,12 +13,10 @@ namespace ExemploMapeamentoFluentHibernate.Test.Comparadores
             {
                 return x.ToString().Equals(y.ToString());
             }
-            else if (x is int && x is int)
+            else 
             {
-                return x == y;
+                return x.Equals(y);
             }
-
-            return x.Equals(y);
         }
 
         public int GetHashCode(object obj)

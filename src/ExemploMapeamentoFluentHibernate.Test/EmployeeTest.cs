@@ -27,14 +27,14 @@ namespace ExemploMapeamentoFluentHibernate.Test
                 var birthDate = DateTime.Now;
                 var hireDate = DateTime.Now;
 
-                new PersistenceSpecification<Employees>(nh, new ComparadorCustomizado())
+                new PersistenceSpecification<Employees>(nh)
                     .CheckProperty(c => c.Address, "Rua de teste, 45")
-                    .CheckProperty(c => c.BirthDate, DateTime.Now)
+                    .CheckProperty(c => c.BirthDate, DateTime.Now, new ComparadorData())
                     .CheckProperty(c => c.City, "Rio de Janeiro")
                     .CheckProperty(c => c.Country, "Brazil")
                     .CheckProperty(c => c.Extension, "5176")
                     .CheckProperty(c => c.FirstName, "Fulano")
-                    .CheckProperty(c => c.HireDate, DateTime.Now)
+                    .CheckProperty(c => c.HireDate, DateTime.Now, new ComparadorData())
                     .CheckProperty(c => c.HomePhone, "99999-9999")
                     .CheckProperty(c => c.LastName, "De Tal")
                     .CheckProperty(c => c.Notes, "Programador .NET")
