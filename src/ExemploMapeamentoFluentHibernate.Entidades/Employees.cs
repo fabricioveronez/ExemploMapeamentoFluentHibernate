@@ -6,6 +6,14 @@ namespace ExemploMapeamentoFluentHibernate.Entidades
 {
     public class Employees
     {
+
+        public Employees()
+        {
+            this.Territories = new List<Territories>();
+            this.Subordinates = new List<Employees>();
+            this.Orders = new List<Orders>();
+        }
+
         public virtual int EmployeeID { get; set; }
         public virtual string LastName { get; set; }
         public virtual string FirstName { get; set; }
